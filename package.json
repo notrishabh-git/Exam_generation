@@ -1,0 +1,19 @@
+{
+  "name": "examgen",
+  "version": "1.0.0",
+  "description": "AI-powered exam paper generation platform for professors",
+  "scripts": {
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install",
+    "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm start\"",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "groq-sdk": "^1.1.2"
+  }
+}
