@@ -204,6 +204,14 @@ export default function QuestionReview() {
       } else {
         await papersAPI.create(payload);
       }
+
+      // Automatically sync these approved questions to the Master Question Bank 
+      // so the user doesn't have to manually click the separate "Save to Bank" button
+      try {
+        await bankAPI.addMany({ questions: approved, subject: config.subject });
+      } catch (err) {
+        console.error('Non-critical: Background auto-sync to bank failed', err);
+      }
       toast.success('Paper saved successfully!');
     } catch {
       toast.error('Failed to save paper');

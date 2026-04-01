@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { GraduationCap, Eye, EyeOff, ArrowRight, Loader2, Shield, Zap, Lock } from 'lucide-react';
 import { authAPI } from '../utils/api';
 import { useAuthStore } from '../store';
+import ParticleBackground from '../components/ParticleBackground';
 import './Auth.css';
 
 export function Login() {
@@ -120,19 +121,43 @@ export function Register() {
 }
 
 function AuthShell({ title, subtitle, children }) {
+  const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
+
+  React.useEffect(() => {
+    const handleMouseMove = (e) => {
+      const { innerWidth, innerHeight } = window;
+      const x = (e.clientX / innerWidth - 0.5) * 12; // Rotate up to 12 degrees
+      const y = (e.clientY / innerHeight - 0.5) * -12;
+      setMousePos({ x, y });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
     <div className="auth-page">
-      <div className="auth-bg"/>
-      <div className="auth-card">
-        <div className="auth-logo">
-          <div className="auth-logo-icon"><GraduationCap size={22}/></div>
-          <span className="auth-logo-name">ExamGen</span>
+      <ParticleBackground />
+      <div className="auth-card-container">
+        <div 
+          className="auth-card"
+          style={{
+            transform: `rotateX(${mousePos.y}deg) rotateY(${mousePos.x}deg)`,
+            transition: 'transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1)',
+            transformStyle: 'preserve-3d'
+          }}
+        >
+          <div className="auth-logo" style={{ transform: 'translateZ(40px)' }}>
+            <div className="auth-logo-icon"><GraduationCap size={22}/></div>
+            <span className="auth-logo-name" style={{ backgroundImage: 'linear-gradient(270deg, #fff, #8b5cf6, #fff)', backgroundSize: '200% auto', WebkitBackgroundClip: 'text', color: 'transparent', animation: 'shineTitle 3s linear infinite' }}>ExamGen</span>
+          </div>
+          <h1 className="auth-title" style={{ transform: 'translateZ(30px)' }}>{title}</h1>
+          <p className="auth-subtitle" style={{ transform: 'translateZ(20px)' }}>{subtitle}</p>
+          <div style={{ transform: 'translateZ(10px)' }}>
+            {children}
+          </div>
         </div>
-        <h1 className="auth-title">{title}</h1>
-        <p className="auth-subtitle">{subtitle}</p>
-        {children}
       </div>
-      <div className="auth-footer">AI-powered exam question generation for educators</div>
+      <div className="auth-footer" style={{ zIndex: 1 }}>AI-powered exam question generation for educators</div>
     </div>
   );
 }

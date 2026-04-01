@@ -28,7 +28,6 @@ const NAV_ITEMS = [
   {
     label: 'ACCOUNT',
     items: [
-      { path: '/notifications',icon: Bell,            label: 'Notifications' },
       { path: '/settings',     icon: Settings,        label: 'Settings' },
     ],
   },

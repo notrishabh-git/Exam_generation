@@ -9,6 +9,7 @@ import Papers       from './pages/Papers';
 import QuestionBank from './pages/QuestionBank';
 import Analytics    from './pages/Analytics';
 import Settings     from './pages/Settings';
+import Students     from './pages/Students';
 import { Login, Register } from './pages/Auth';
 
 import './styles/globals.css';
@@ -55,7 +56,7 @@ export default function App() {
         <Route path="/question-bank" element={<ProtectedRoute><QuestionBank/></ProtectedRoute>} />
         <Route path="/analytics"     element={<ProtectedRoute><Analytics/></ProtectedRoute>} />
         <Route path="/settings"      element={<ProtectedRoute><Settings/></ProtectedRoute>} />
-        <Route path="/notifications" element={<ProtectedRoute><Dashboard/></ProtectedRoute>} />
+        <Route path="/students"      element={<ProtectedRoute><Students/></ProtectedRoute>} />
 
         {/* Redirects */}
         <Route path="/" element={<Navigate to="/dashboard" replace />} />

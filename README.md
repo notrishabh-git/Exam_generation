@@ -7,6 +7,7 @@
 ## Features
 
 - **AI Question Generation** — Upload PPTX/PDF/DOCX slides or enter topics manually; Claude generates MCQs, Short Answer, Long Answer, True/False, and Fill-in-the-Blank questions
+- **Premium 3D Holographic UI** — Breathtaking authentication experience featuring an interactive HTML5 Canvas Neural Network background and 3D parallax glassmorphic cards
 - **Bloom's Taxonomy Tagging** — Every question tagged with cognitive level (Remember → Create)
 - **Question Review Panel** — Edit, delete, regenerate, and approve questions individually before finalizing
 - **Question Bank** — Searchable, filterable repository of all generated questions reusable across papers
@@ -21,12 +22,12 @@
 
 | Layer    | Technology                             |
 |----------|----------------------------------------|
-| Frontend | React 18, React Router 6, Zustand, Recharts, Framer Motion |
+| Frontend | React 18, React Router 6, Zustand, Recharts, HTML5 Canvas |
 | Backend  | Node.js, Express 4, MongoDB, Mongoose  |
 | AI       | Anthropic Claude API (claude-sonnet)   |
 | Auth     | JWT + bcryptjs                         |
 | Files    | Multer, pdf-parse, mammoth             |
-| Styling  | Custom CSS design system (dark academic theme) |
+| Styling  | Custom CSS design system (Dark academic theme with Interactive Particle UI & Glassmorphism) |
 
 ---
 
@@ -61,7 +62,7 @@ examgen/
 ### 1. Clone and install dependencies
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/notrishabh-git/Exam_generation.git
 cd examgen
 npm install           # installs root (concurrently)
 cd client && npm install
