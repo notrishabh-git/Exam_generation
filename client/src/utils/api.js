@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { useAuthStore } from '../store';
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || '/api',
+  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000/api',
   timeout: 60000,
   headers: { 'Content-Type': 'application/json' },
 });
