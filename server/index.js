@@ -21,7 +21,10 @@ app.use(helmet({ contentSecurityPolicy: false }));
 app.use(compression());
 app.use(morgan('dev'));
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  origin: [
+    'http://localhost:3000',
+    process.env.CLIENT_URL,           // your Vercel URL
+  ],
   credentials: true,
 }));
 app.use(express.json({ limit: '10mb' }));

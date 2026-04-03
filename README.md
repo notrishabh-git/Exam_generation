@@ -10,11 +10,13 @@
 - **Premium 3D Holographic UI** — Breathtaking authentication experience featuring an interactive HTML5 Canvas Neural Network background and 3D parallax glassmorphic cards
 - **Bloom's Taxonomy Tagging** — Every question tagged with cognitive level (Remember → Create)
 - **Question Review Panel** — Edit, delete, regenerate, and approve questions individually before finalizing
-- **Question Bank** — Searchable, filterable repository of all generated questions reusable across papers
+- **Master Question Bank** — Searchable, filterable repository of all generated questions with dynamic glassmorphic cards and JSON export capabilities
+- **Smart Background Sync** — Automatically extracts and deposits individual questions into your database the moment you save a finalized paper
 - **Dashboard Analytics** — Charts for generation activity, question type distribution, subject performance
 - **Paper Management** — Save, duplicate, search, filter, and export papers as PDF/DOCX/JSON
 - **Multi-variant Support** — Generate Set A, Set B for different exam halls
 - **Protected Routes** — JWT auth with professor profiles
+- **Intuitive Navigation** — Universal browser-native "Go Back" interaction components seamlessly integrated into page headers
 
 ---
 
