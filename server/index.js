@@ -99,6 +99,11 @@ if (process.env.NODE_ENV !== 'production') {
 // ─── Vercel: wrap every request with a DB connection ─────────────────────────
 // Vercel calls this exported handler for each incoming request
 module.exports = async (req, res) => {
-  await connectDB();
-  return app(req, res);
+  try {
+    await connectDB();
+    return app(req, res);
+  } catch (error) {
+    console.error('Vercel handler error:', error);
+    res.status(500).json({ success: false, message: 'Database connection failed: ' + error.message, error: error.toString() });
+  }
 };
