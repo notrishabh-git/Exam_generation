@@ -1,5 +1,14 @@
 {
-  "version": 2,
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/server/index.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/client/$1"
+    }
+  ],
   "builds": [
     {
       "src": "server/index.js",
@@ -11,16 +20,6 @@
       "config": {
         "distDir": "build"
       }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "server/index.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "client/$1"
     }
   ]
 }
